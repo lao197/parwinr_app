@@ -1,0 +1,76 @@
+.thumb, .cover, #thumbs, #covers, #tooltip, .nums, #strip {
+  position: absolute;
+}
+.cover {
+  width: 120px;
+  height: 72px;
+  opacity: 0;
+  filter: alpha(opacity = 0);
+  border-style: hidden;
+}
+#tooltip {
+  margin: 0;
+  color: black;
+  background-color: lightgray;
+  padding: 2px 7px;
+  font-family: sans-serif;
+  font-size: 12px;
+  border-style: outset;
+}
+#arrowUp {
+/*  left: 30px;
+  top: 880px; */
+  width: 150px;
+  height: 30px;
+  opacity: 0.5;
+  filter: alpha(opacity = 50);
+  border-style: hidden;
+}
+
+#arrowDown {
+/*  left: 70px;
+  top: 50px; */
+  width: 150px;
+  height: 30px;
+  opacity: 0.5;
+  filter: alpha(opacity = 50);
+  border-style: hidden;
+}
+#selectVideo {
+  width: 200px;
+  font-size: 14px;
+  font-weight:bold;
+  background-color: black;
+  color: white;  
+}
+.nums {
+  //border-style: outset;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-style:italic;
+  z-index: 3;
+  font-size: 16px;
+}
+
+div.midStrip {
+  position: relative;
+  height: 800px;
+}
+
+table.stripTable tr td {
+  text-align: right;
+  background: #cff;
+}
+
+#thumbs {
+  z-index: 1;
+}
+
+#strip {
+  z-index: 2;
+}
+
+#covers a:visited {
+  color: #FFF;
+}
