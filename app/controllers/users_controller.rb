@@ -15,8 +15,8 @@ class UsersController < ApplicationController
 
   def show()
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(:page => params[:page])
-    @title = @user.name
+#    @microposts = @user.microposts.paginate(:page => params[:page])
+    @title = @user.firstName
   end
 
   def following()
@@ -35,10 +35,12 @@ class UsersController < ApplicationController
 
   def create()
     @user = User.new(params[:user])
+    @user.attributes = { :points => 100, :level => 0 }
+    
     if @user.save
       sign_in(@user)
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to(@user)
+      flash[:success] = "Welcome to ParWinr!"
+      redirect_to(root_path)
     else
       @title = "Sign up"
       @user.password = ""
@@ -53,12 +55,14 @@ class UsersController < ApplicationController
   
   def update()
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated."
-      redirect_to(@user)
-    else
-      @title = "Edit user"
-      render('edit')
+    if !@user.nil?
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Profile updated."
+        redirect_to(@user)
+      else
+        @title = "Edit user"
+        render('edit')
+      end
     end
   end
   

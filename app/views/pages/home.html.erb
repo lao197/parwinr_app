@@ -3,24 +3,23 @@
     <tr>
       <td class="main">
         <h1 class="micropost">Featured Games</h1>
-        <!--
-        <%= render 'shared/micropost_form' %>
-        <%= render 'shared/feed' %>
-        -->
+        <p>
+	  Thumbnails of featured games
+	</p>
+	<p>
+	  My friends' games, most recent first
+        </p>
       </td>
       <td class="sidebar round">
-        <%= render 'shared/user_info' %>
-        <%= render 'shared/stats' %>
+        <%= render "/shared/side" %>
       </td>
     </tr>
   </table>
 <% else %>
   <h1>Featured Games</h1>
-
   <p>
     Thumbnails of featured games
   </p>
-  
   <p>
     If signed in, my friends' games, most recent first
   </p>

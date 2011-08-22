@@ -1,0 +1,10 @@
+<% @user ||= current_user %>
+Logged in as <strong><%= @user.firstName + " " + @user.lastName %></strong><br />
+Points: <strong><%= @user.points %></strong><br />
+Level: <strong><%= @user.level %></strong><br />
+<% if @user.accountType == "admin" %>
+  You are an administrator!
+<% elsif @user.accountType == "corporate" %>
+  You are a corporate client!
+<% end %>
+<!--<strong>URL</strong>  <= link_to user_path(@user), @user %><br /> -->

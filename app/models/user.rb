@@ -18,7 +18,8 @@
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :firstName, :lastName, :email, :password, :password_confirmation
+  attr_accessible :firstName, :lastName, :email, :username, :password, 
+  		:password_confirmation, :points, :level
   
   validates :firstName, 
   		:presence => true, 
