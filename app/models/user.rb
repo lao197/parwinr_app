@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
   def has_password?(submittedPassword)
     encryptedPassword == encrypt(submittedPassword)
   end
+  
+  def isAdmin()
+    self.accountType == "admin"
+  end
 
   def self.authenticate(email, submittedPassword)
     user = find_by_email(email)

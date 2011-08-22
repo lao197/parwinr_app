@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Videoid:</b>
+  <%= @video.videoID %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @video.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

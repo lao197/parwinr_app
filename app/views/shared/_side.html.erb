@@ -2,7 +2,7 @@
 Logged in as <strong><%= @user.firstName + " " + @user.lastName %></strong><br />
 Points: <strong><%= @user.points %></strong><br />
 Level: <strong><%= @user.level %></strong><br />
-<% if @user.accountType == "admin" %>
+<% if @user.isAdmin() %>
   You are an administrator!
 <% elsif @user.accountType == "corporate" %>
   You are a corporate client!

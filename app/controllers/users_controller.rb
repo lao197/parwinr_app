@@ -82,8 +82,8 @@ class UsersController < ApplicationController
     def admin_user()
       if !signed_in?
         redirect_to(signin_path)
-      else 
-        redirect_to(root_path) unless current_user.admin?
+      else
+        redirect_to(root_path) unless current_user.isAdmin()
       end
     end
 

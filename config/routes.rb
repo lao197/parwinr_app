@@ -1,4 +1,6 @@
 ParwinrApp::Application.routes.draw do
+  resources :videos
+
   resources :users do
     member do
       get :following, :followers
@@ -13,7 +15,7 @@ ParwinrApp::Application.routes.draw do
   
   resources :questions, :only => [:create, :edit, :destroy]
   
-  match '/videos', :to => 'videos#video'
+  # match '/videos', :to => 'videos#video'
   
   match '/search', :to => 'pages#search'
   
