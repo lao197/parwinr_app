@@ -1,0 +1,66 @@
+<header>
+  <table>
+    <tr>
+      <td class="firstlogo">
+        <%= link_to(logo(), root_path) %>
+      </td>
+      <td class="logoText">
+        <%= link_to(logoText(), root_path) %>
+      </td>
+  <td class="hMenu">
+  <nav class="round">
+    <ul id="sddm">
+      <li><%= link_to "Home", root_path %>
+      </li>
+      <li><%= link_to "Games", games_path, 
+        :onmouseover => "mOpen('mGame')",
+        :onmouseout => "mCloseTime()" %>
+        <div id="mGame" onmouseover="mCancelCloseTime()" 
+            onmouseout="mCloseTime()">
+        <a href="games">Browse Games</a>
+        <a href="#">My Games</a>
+        <a href="#">My Friends' Games</a>
+        <%= link_to("Create a Game", new_game_path) %>
+        </div>
+      </li>
+      <li><%= link_to "Videos", videos_path,
+        :onmouseover => "mOpen('mVideo')",
+        :onmouseout => "mCloseTime()" %>
+        <div id="mVideo" onmouseover="mCancelCloseTime()" 
+            onmouseout="mCloseTime()">
+        <%= link_to "Browse Videos", videos_path %>
+        <%= link_to "Upload Video to Youtube", videos_path %>
+        </div>
+      </li>
+      <% if signed_in? %>
+      <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "Profile", current_user,
+        :onmouseover => "mOpen('mProfile')",
+        :onmouseout => "mCloseTime()" %>
+        <div id="mProfile" onmouseover="mCancelCloseTime()" 
+            onmouseout="mCloseTime()">
+        <%= link_to "My Profile", current_user %>
+        <%= link_to "Edit Profile", edit_user_path(current_user) %>
+        </div>
+      </li>
+      <% end %>
+      <li><%= link_to "Help", help_path %></li>
+      <% if signed_in? %>
+      <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to "Sign in", signin_path %></li>
+      <% end %>
+    </ul>
+    <!--hr /-->
+    <ul>
+      <li class="search">
+        <%= form_for :pages, :url => "/search" do |f| %>
+          <%= f.text_field :search, :class => "searchField" %>
+          <%= f.submit "Search" %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+  </td></tr>
+  </table>
+</header>

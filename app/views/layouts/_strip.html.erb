@@ -1,0 +1,40 @@
+<table class="stripTable">
+  <tr><td>
+    <form action="">
+      <select id="selectVideo" name="type" onChange="loadVideos(this.form)">
+        <option value="top_rated">Youtube's Top Rated</option>
+        <option value="top_favorites">Youtube's Favorites</option>
+        <option value="most_viewed">Youtube's Most Viewed</option>
+        <option value="most_popular">Youtube's Most Popular</option>
+        <option value="most_recent">Youtube's Most Recent</option>
+        <option value="on_the_web">Youtube's Trending Videos</option>
+      </select>
+    </form>
+  </td></tr>
+  <tr><td>
+    <img id="arrowUp" src="/images/up.png" />
+  </td></tr>
+  <tr><td>
+    <div class="midStrip">
+    <form>
+      <div id="thumbs"></div>
+      <img id="strip" src="/images/strip.png" usemap="#videoMap" />
+      <div id="covers"></div>
+      <map name="videoMap">
+        <area shape="rect" coords="78,8,198,88" onClick="loadVideo(0)" target="_blank" />
+        <area shape="rect" coords="50,97,170,177" onClick="loadVideo(1)" target="_blank" />
+        <area shape="rect" coords="39,185,159,265" onClick="loadVideo(2)" target="_blank" />
+        <area shape="rect" coords="46,274,166,354" onClick="loadVideo(3)" target="_blank" />
+        <area shape="rect" coords="65,363,185,443" onClick="loadVideo(4)" target="_blank" />
+        <area shape="rect" coords="84,451,204,531" onClick="loadVideo(5)" target="_blank" />
+        <area shape="rect" coords="91,540,211,620" onClick="loadVideo(6)" target="_blank" />
+        <area shape="rect" coords="80,628,200,708" onClick="loadVideo(7)" target="_blank" />
+        <area shape="rect" coords="52,716,172,796" onClick="loadVideo(8)" target="_blank" />
+      </map>
+    </form>
+    </div>
+  </td></tr>
+  <tr><td>
+    <img id="arrowDown" src="/images/down.png" />
+  </td></tr>
+</table>

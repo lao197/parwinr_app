@@ -1,0 +1,33 @@
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">Featured Games</h1>
+        <!--
+        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/feed' %>
+        -->
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+        <%= render 'shared/stats' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Featured Games</h1>
+
+  <p>
+    Thumbnails of featured games
+  </p>
+  
+  <p>
+    If signed in, my friends' games, most recent first
+  </p>
+  
+  <% unless signed_in? %>
+    <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+    <br />
+    <%= link_to "Sign in", signin_path, :class => "signup_button round" %>
+  <% end %>
+<% end %>

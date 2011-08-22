@@ -153,11 +153,10 @@ nav ul li a:hover {
   font-size: 90%;
 }
 
-	#sddm div a:hover
-	{	background: #49A3FF;
-		color: #FFF}
-
-
+#sddm div a:hover {	
+  background: #49A3FF;
+  color: #FFF
+}
 
 /* Sign up button */
 
@@ -233,13 +232,15 @@ div.field, div.actions {
 
 .field_with_errors {
 /*  margin-top: 10px; */
-  padding: 2px;
+/*  padding: 2px; */
   background-color: red;
-  display: table;
+/*  display: table-row; */
+  display: inline;
 }
 
 .field_with_errors label {
   color: #fff;
+  margin: 0;
 }
 
 #error_explanation {
