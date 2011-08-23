@@ -1,13 +1,19 @@
 <li>
+<table>
+  <tr>
+  <td>
   <%= gravatar_for user, :size => 30 %>
   <%= link_to user.firstName + " " + user.lastName, user %>
+  </td>
   <% if current_user().isAdmin() %>
-    <span class = "admin">
+    <td class = "admin">
       <%= user.accountType %>
       <% if !user.isAdmin() %>
           <%= button_to "delete", user, :method => :delete, :confirm => "You sure?",
                                 :title => "Delete #{user.firstName}" %>
       <% end %>
-    </span>
+    </td>
   <% end %>
+  </tr>
+</table>
 </li>

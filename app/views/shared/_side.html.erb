@@ -1,5 +1,6 @@
 <% user = current_user() %>
-Logged in as <strong><%= user.firstName + " " + user.lastName %></strong><br />
+Logged in as <strong><%= user.username %></strong><br />
+<strong><%= user.firstName + " " + user.lastName %></strong><br />
 Points: <strong><%= user.points %></strong><br />
 Level: <strong><%= user.level %></strong><br />
 <% if user.isAdmin() %>

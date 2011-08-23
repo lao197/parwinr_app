@@ -339,3 +339,11 @@ form.new_micropost textarea {
 #question_area {
   height: 100%;
 }
+
+.admin {
+  background-color: #99FF99;
+}
+
+#adminDelete {
+  float: left;
+}

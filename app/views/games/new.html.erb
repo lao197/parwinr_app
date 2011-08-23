@@ -1,5 +1,15 @@
-<h1>New game</h1>
+<h1>Create A New game</h1>
+<% if current_user().isAdmin() %>
+  <div class="admin">
+    <%= render 'form' %>
+  </div>
+<% end %>
 
-<%= render 'form' %>
-
+<div>
+<h3>Step One:</h3>
+<p>Go to a video page through browsing or searching</p>
+<h3>Step Two:</h3>
+<p>Click on the "Create Game" button on the video page
+and follow through the steps to create a new game</p>
+</div>
 <%= link_to 'Back', games_path %>

@@ -92,16 +92,4 @@ class VideosController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  private
-    def admin_user()
-      if !signed_in?
-        redirect_to(signin_path)
-      else 
-        if !current_user().isAdmin()
-          flash[:error] = "You need to be an administrator to perform the task."
-          redirect_to(root_path)
-        end
-      end
-    end
 end

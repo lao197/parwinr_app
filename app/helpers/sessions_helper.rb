@@ -38,6 +38,17 @@ module SessionsHelper
     redirect_to(session[:return_to] || default)
     clear_return_to()
   end
+  
+  def admin_user()
+    if !signed_in?
+      redirect_to(signin_path)
+    else 
+      if !current_user().isAdmin()
+        flash[:error] = "You need to be an administrator to perform the task."
+        redirect_to(root_path)
+      end
+    end
+  end
 
   private
   

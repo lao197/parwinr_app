@@ -11,4 +11,9 @@
 
 class Video < ActiveRecord::Base
   attr_accessible :videoID, :videoType
+  
+  validates :videoID, :presence => true
+  validates :videoType, :presence => true
+  
+  has_many :games, :dependent => :destroy
 end

@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+  before_filter :authenticate, :except => [:index, :show]
+  before_filter :admin_user, :except => [:index, :show]
+
   # GET /games
   # GET /games.xml
   def index

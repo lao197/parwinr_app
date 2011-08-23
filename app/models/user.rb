@@ -38,6 +38,8 @@ class User < ActiveRecord::Base
   		:confirmation => true, 
   		:length => { :within => 6..40 }
 
+  has_many :games, :dependent => :destroy
+
   before_save :encrypt_password
   
   # Return true if the user's password matches the submitted password.

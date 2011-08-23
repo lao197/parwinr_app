@@ -5,8 +5,10 @@
     <th>Title</th>
     <th>Description</th>
     <th>Rating</th>
-    <th>Totalrating</th>
-    <th>Noofrating</th>
+    <% if current_user().isAdmin() %>
+      <th class="admin">Total Rating</th>
+      <th class="admin">No. of Ratings</th>
+    <% end %>
     <th>Likes</th>
     <th></th>
     <th></th>
@@ -18,12 +20,16 @@
     <td><%= game.title %></td>
     <td><%= game.description %></td>
     <td><%= game.rating %></td>
-    <td><%= game.totalRating %></td>
-    <td><%= game.noOfRating %></td>
+    <% if current_user().isAdmin() %>
+      <td class="admin"><%= game.totalRating %></td>
+      <td class="admin"><%= game.noOfRating %></td>
+    <% end %>
     <td><%= game.likes %></td>
     <td><%= link_to 'Show', game %></td>
-    <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if current_user().isAdmin() %>
+      <td class="admin"><%= link_to 'Edit', edit_game_path(game) %></td>
+      <td class="admin"><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

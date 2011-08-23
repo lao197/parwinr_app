@@ -14,8 +14,10 @@
     <td><%= video.videoID %></td>
     <td><%= video.videoType %></td>
     <td><%= link_to 'Show', video %></td>
-    <td><%= link_to 'Edit', edit_video_path(video) %></td>
-    <td><%= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if current_user().isAdmin() %>
+      <td class="admin"><%= link_to 'Edit', edit_video_path(video) %></td>
+      <td class="admin"><%= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
