@@ -10,7 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110822111500) do
+ActiveRecord::Schema.define(:version => 20110823105724) do
+
+  create_table "games", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "rating",      :precision => 3, :scale => 2, :default => 0.0
+    t.integer  "totalRating",                               :default => 0
+    t.integer  "noOfRating",                                :default => 0
+    t.integer  "likes",                                     :default => 0
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["description"], :name => "index_games_on_description"
+  add_index "games", ["title"], :name => "index_games_on_title"
+  add_index "games", ["user_id"], :name => "index_games_on_user_id"
+  add_index "games", ["video_id"], :name => "index_games_on_video_id"
 
   create_table "users", :force => true do |t|
     t.string   "firstName"
@@ -33,11 +51,12 @@ ActiveRecord::Schema.define(:version => 20110822111500) do
 
   create_table "videos", :force => true do |t|
     t.string   "videoID"
-    t.string   "type"
+    t.string   "videoType"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "videos", ["videoID"], :name => "index_videos_on_videoID"
+  add_index "videos", ["videoID"], :name => "index_videos_on_videoID", :unique => true
+  add_index "videos", ["videoType"], :name => "index_videos_on_videoType"
 
 end

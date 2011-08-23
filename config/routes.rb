@@ -15,7 +15,7 @@ ParwinrApp::Application.routes.draw do
   
   resources :questions, :only => [:create, :edit, :destroy]
   
-  # match '/videos', :to => 'videos#video'
+  match '/video', :to => 'videos#video'
   
   match '/search', :to => 'pages#search'
   

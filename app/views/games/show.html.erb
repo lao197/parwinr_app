@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @game.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @game.description %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @game.rating %>
+</p>
+
+<p>
+  <b>Totalrating:</b>
+  <%= @game.totalRating %>
+</p>
+
+<p>
+  <b>Noofrating:</b>
+  <%= @game.noOfRating %>
+</p>
+
+<p>
+  <b>Likes:</b>
+  <%= @game.likes %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

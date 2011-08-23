@@ -1,9 +1,17 @@
 class VideosController < ApplicationController
-  before_filter :admin_user, :except => [:show]
+  before_filter :authenticate, :except => [:index, :show, :video]
+  before_filter :admin_user, :except => [:index, :show, :video]
+
+  def video
+    @id = params[:id]
+    @type = params[:type]
+    @title = "Video"
+  end
 
   # GET /videos
   # GET /videos.xml
   def index
+    @title = "All Videos"
     @videos = Video.all
 
     respond_to do |format|
@@ -15,6 +23,7 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.xml
   def show
+    @title = "View a Video from the DB"
     @video = Video.find(params[:id])
 
     respond_to do |format|
@@ -36,6 +45,7 @@ class VideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
+    @title = "Edit Video"
     @video = Video.find(params[:id])
   end
 

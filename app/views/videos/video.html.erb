@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Video ID:</b>
+  <%= @id %>
+</p>
+<p>
+  <b>Video type:</b>
+  <%= @type %>
+</p>
+<%= form_tag({:action => 'create', :video => {:videoID => @id, :videoType => @type}}, :method => "post" ) do %>
+  <%= submit_tag "Create Game" %>
+<% end %>

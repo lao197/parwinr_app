@@ -1,64 +1,83 @@
 class GamesController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create]
-  
-  @game_session = 0
-  
-  def create()
-    
-# Game: video_id, user_id
-# Question: question, options, answer
-# Video: video_id, type
-#    @game = current_user().games.build(params[:game])
-#   Look for video in the database first, create an entry if not found
-#    videoId = params[:video][:video_id]
-#    @video = Videos.find_by_video_id(videoId)
-#    if @video.nil?
-#      @video = Video.new(:video_id => params[:video], :type => "ytId")
-#      if !@video.save
-##        error handling, but unlikely
-#      end
-#    end
-#    @game.video_id = videoId
-#    @question = @game.build(
-    
+  # GET /games
+  # GET /games.xml
+  def index
+    @games = Game.all
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @games }
+    end
+  end
 
-#    if @micropost.save
-#      flash[:success] = "Micropost created!"
-#      redirect_to root_path
-#    else
-#      @feed_items = []
-#      render 'pages/home'
-#    end
+  # GET /games/1
+  # GET /games/1.xml
+  def show
+    @game = Game.find(params[:id])
 
-    @title = "Create a New Game"
-    @game = current_user().games.build(:video_id => "1")
-    if @game.nil?
-      render 'new'
-    else
-      @question = @game.questions.build(params[:question])
-      if @question.save
-        @game.game_questions.create(:question_id => question.id);
-        render 'show'
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @game }
+    end
+  end
+
+  # GET /games/new
+  # GET /games/new.xml
+  def new
+    @game = Game.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @game }
+    end
+  end
+
+  # GET /games/1/edit
+  def edit
+    @game = Game.find(params[:id])
+  end
+
+  # POST /games
+  # POST /games.xml
+  def create
+    @game = Game.new(params[:game])
+
+    respond_to do |format|
+      if @game.save
+        format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
+        format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
-        render 'new'
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @game.errors, :status => :unprocessable_entity }
       end
     end
-   
-  end
-  
-  def show()
-    @title = "Play Game"
   end
 
-  def index()
-    @title = "Browse Games"
-    # @category = params[:category]
+  # PUT /games/1
+  # PUT /games/1.xml
+  def update
+    @game = Game.find(params[:id])
+
+    respond_to do |format|
+      if @game.update_attributes(params[:game])
+        format.html { redirect_to(@game, :notice => 'Game was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @game.errors, :status => :unprocessable_entity }
+      end
+    end
   end
-  
-  def new()
-    @title = "Create a New Game"
-    @question = Question.new
-    @game = current_user().games.build(:video_id => "1")
+
+  # DELETE /games/1
+  # DELETE /games/1.xml
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(games_url) }
+      format.xml  { head :ok }
+    end
   end
 end

@@ -20,6 +20,6 @@ class PagesController < ApplicationController
   
   def search
     @title = "Search"
-    @search = params[:pages][:search]
+    @search = params[:q]
   end
 end

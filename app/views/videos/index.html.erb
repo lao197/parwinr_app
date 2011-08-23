@@ -12,7 +12,7 @@
 <% @videos.each do |video| %>
   <tr>
     <td><%= video.videoID %></td>
-    <td><%= video.type %></td>
+    <td><%= video.videoType %></td>
     <td><%= link_to 'Show', video %></td>
     <td><%= link_to 'Edit', edit_video_path(video) %></td>
     <td><%= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete %></td>

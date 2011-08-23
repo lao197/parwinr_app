@@ -3,12 +3,14 @@
     <tr>
       <td class="main">
         <h1 class="micropost">Featured Games</h1>
+        <div>
         <p>
 	  Thumbnails of featured games
 	</p>
 	<p>
 	  My friends' games, most recent first
         </p>
+        </div>
       </td>
       <td class="sidebar round">
         <%= render "/shared/side" %>
@@ -17,13 +19,14 @@
   </table>
 <% else %>
   <h1>Featured Games</h1>
+  <div>
   <p>
     Thumbnails of featured games
   </p>
   <p>
     If signed in, my friends' games, most recent first
   </p>
-  
+  </div>
   <% unless signed_in? %>
     <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
     <br />

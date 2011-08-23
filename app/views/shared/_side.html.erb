@@ -1,10 +1,10 @@
-<% @user ||= current_user %>
-Logged in as <strong><%= @user.firstName + " " + @user.lastName %></strong><br />
-Points: <strong><%= @user.points %></strong><br />
-Level: <strong><%= @user.level %></strong><br />
-<% if @user.isAdmin() %>
-  You are an administrator!
-<% elsif @user.accountType == "corporate" %>
-  You are a corporate client!
+<% user = current_user() %>
+Logged in as <strong><%= user.firstName + " " + user.lastName %></strong><br />
+Points: <strong><%= user.points %></strong><br />
+Level: <strong><%= user.level %></strong><br />
+<% if user.isAdmin() %>
+  You are an <i>administrator</i>!
+<% elsif user.accountType == "corporate" %>
+  You are a <i>corporate client</i>!
 <% end %>
-<!--<strong>URL</strong>  <= link_to user_path(@user), @user %><br /> -->
+<!--<strong>URL</strong>  <= link_to user_path(user), user %><br /> -->

@@ -54,10 +54,10 @@
     <!--hr /-->
     <ul>
       <li class="search">
-        <%= form_for :pages, :url => "/search" do |f| %>
-          <%= f.text_field :search, :class => "searchField" %>
-          <%= f.submit "Search" %>
-        <% end %>
+        <%= form_tag("search", :method => "get") do %>
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search") %>
+        <% end %> 
       </li>
     </ul>
   </nav>
