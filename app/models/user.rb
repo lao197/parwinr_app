@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   attr_accessible :firstName, :lastName, :email, :username, :password, 
   		:password_confirmation, :points, :level
   
+  emailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  
   validates :firstName, 
   		:presence => true, 
   		:length => { :maximum => 40 }
@@ -29,7 +31,8 @@ class User < ActiveRecord::Base
   		:length => { :maximum => 40 }
   validates :email, 
   		:presence => true, 
-  		:uniqueness => { :case_sensitive => false }
+  		:uniqueness => { :case_sensitive => false },
+  		:format => { :with => emailRegex }
   validates :username, 
   		:presence => true, 
   		:uniqueness => { :case_sensitive => false }
@@ -39,6 +42,12 @@ class User < ActiveRecord::Base
   		:length => { :within => 6..40 }
 
   has_many :games, :dependent => :destroy
+  
+  # TODO Do we need has many gameposts here? Is this a query we'll ever need?
+  has_many :gameposts, :dependent => :destroy
+  
+  # Only parwinr's own videos have an owner
+  has_many :videos, :dependent => :destroy
 
   before_save :encrypt_password
   

@@ -7,6 +7,7 @@
 #  videoType  :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer
 #
 
 class Video < ActiveRecord::Base
@@ -16,4 +17,6 @@ class Video < ActiveRecord::Base
   validates :videoType, :presence => true
   
   has_many :games, :dependent => :destroy
+  
+  belongs_to :user
 end

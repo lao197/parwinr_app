@@ -26,6 +26,9 @@ class Game < ActiveRecord::Base
   		:presence => true,
   		:length => { :maximum => 255 }
   validates_numericality_of :noOfRating, :greater_than_or_equal_to => 0
+  
+  has_many :segments, :dependent => :destroy
+  has_many :gameposts, :dependent => :destroy
   		
   before_save :calculate_rating
   

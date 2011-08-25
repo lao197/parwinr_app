@@ -343,7 +343,3 @@ form.new_micropost textarea {
 .admin {
   background-color: #99FF99;
 }
-
-#adminDelete {
-  float: left;
-}

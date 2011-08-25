@@ -1,17 +1,14 @@
 # == Schema Information
 #
-# Table name: videos
+# Table name: segment_tasks
 #
 #  id         :integer         not null, primary key
-#  videoID    :string(255)
-#  videoType  :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  user_id    :integer
+#  segment_id :integer
+#  task_id    :integer
 #
 
 require 'spec_helper'
 
-describe Video do
+describe SegmentTask do
   pending "add some examples to (or delete) #{__FILE__}"
 end

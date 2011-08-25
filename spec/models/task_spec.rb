@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: videos
+# Table name: tasks
 #
 #  id         :integer         not null, primary key
-#  videoID    :string(255)
-#  videoType  :string(255)
+#  taskType   :string(255)
+#  xmlContent :text
+#  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
-#  user_id    :integer
 #
 
 require 'spec_helper'
 
-describe Video do
+describe Task do
   pending "add some examples to (or delete) #{__FILE__}"
 end
