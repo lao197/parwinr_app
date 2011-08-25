@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(:version => 20110823105724) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["firstName"], :name => "index_users_on_firstName"
   add_index "users", ["lastName"], :name => "index_users_on_lastName"
-  add_index "users", ["username"], :name => "index_users_on_username"
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
   create_table "videos", :force => true do |t|
     t.string   "videoID"
