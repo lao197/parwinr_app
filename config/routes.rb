@@ -13,8 +13,6 @@ ParwinrApp::Application.routes.draw do
   resources :microposts, :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
   
-  resources :questions, :only => [:create, :edit, :destroy]
-  
   match '/video', :to => 'videos#video'
   
   match '/search', :to => 'pages#search'

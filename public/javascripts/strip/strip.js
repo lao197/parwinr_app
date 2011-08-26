@@ -15,7 +15,7 @@ function init() {
   jQuery.each(thumbs, function(i, thumb) {
     jQuery('<img>').addClass('thumb').appendTo (thumbsDiv);
     var aNum = jQuery('<a>').addClass('nums').appendTo (coversDiv);
-    aNum.attr('target', '_blank');
+    //aNum.attr('target', '_blank');
   });
 }
 

@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
-  before_filter :authenticate, :except => [:index, :show, :video]
-  before_filter :admin_user, :except => [:index, :show, :video]
+  before_filter :authenticate, :except => [:index, :video]
+  before_filter :admin_user, :except => [:index, :video]
 
   def video
     @id = params[:id]
@@ -56,7 +56,7 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to(@video, :notice => 'Video was successfully created.') }
+        format.html { redirect_to(new_game_path, :notice => 'Video was successfully created.') }
         format.xml  { render :xml => @video, :status => :created, :location => @video }
       else
         format.html { render :action => "new" }

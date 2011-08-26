@@ -1,5 +1,5 @@
 <h1>Create A New game</h1>
-<% if current_user().isAdmin() %>
+<% if is_admin? %>
   <div class="admin">
     <%= render 'form' %>
   </div>

@@ -15,16 +15,17 @@
   <%= @game.rating %>
 </p>
 
-<p>
-  <b>Totalrating:</b>
-  <%= @game.totalRating %>
-</p>
+<% if is_admin? %>
+  <p class="admin">
+    <b>Total Rating:</b>
+    <%= @game.totalRating %>
+  </p>
 
-<p>
-  <b>Noofrating:</b>
-  <%= @game.noOfRating %>
-</p>
-
+  <p class="admin">
+    <b>No of Ratings:</b>
+    <%= @game.noOfRating %>
+  </p>
+<% end %>
 <p>
   <b>Likes:</b>
   <%= @game.likes %>

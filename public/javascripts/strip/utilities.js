@@ -40,16 +40,19 @@ function updateLink(index) {
   //Sets the image map's url and title (for tooltip)
     var tIndex = (currentIndex + index) % thumbArray.length;
     var video = thumbArray[tIndex];
-    var ytLink = 'http://www.youtube.com/watch?v=' + video.ytId;
+	
+	var parlink = '/video?id=' + video.ytId + '&type=yt';
+	
+    //var ytLink = 'http://www.youtube.com/watch?v=' + video.ytId;
     var area = jQuery('area:eq(' + index + ')');
-    area.attr('href', ytLink);
+    area.attr('href', parlink);//ytLink);
     var text = video.title + ' by ' + video.authors
         + ' (' + video.published.year + '/' + video.published.month + ')';
     //'title' is used as the tooltip in most browsers
     area.attr('title', text);
   //Sets up the number link
     var aNum = jQuery('a.nums:eq(' + index + ')');
-    aNum.attr('href', ytLink);
+    aNum.attr('href', parlink);//ytLink);
     aNum.html('#' + (tIndex + 1));
     aNum.attr('title', text);
   }

@@ -39,6 +39,7 @@ module SessionsHelper
     clear_return_to()
   end
   
+  # Defines routes that can be accessed only by admin user
   def admin_user()
     if !signed_in?
       redirect_to(signin_path)
@@ -48,6 +49,10 @@ module SessionsHelper
         redirect_to(root_path)
       end
     end
+  end
+  
+  def is_admin?
+    signed_in? && current_user().isAdmin()
   end
 
   private
